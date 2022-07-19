@@ -12,7 +12,19 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Demo}"/>
+            <Grid ColumnDefinitions="*" RowDefinitions="*">
+                <Button Grid.Column="0" Grid.Row="0" 
+                        Text="{Binding PreviousMonth}" 
+                        Command = "{Binding CreateUi}" 
+                        CommandParameter="1"/>
+                <Button Grid.Column="1" Grid.Row="0" 
+                        Text="{Binding CurrentMonth}" 
+                        Command="{Binding CreateUi}" 
+                        CommandParameter="0"/>
+            </Grid>
+            <ListView ItemsSource="{Binding DateAndTime}">
+                
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

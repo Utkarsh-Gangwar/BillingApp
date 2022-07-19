@@ -1,8 +1,4 @@
-﻿using BillingApp.Services;
-using BillingApp.Views;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace BillingApp
 {
@@ -12,8 +8,6 @@ namespace BillingApp
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
