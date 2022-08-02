@@ -12,18 +12,34 @@
     
     <ContentPage.Content>
         <StackLayout>
+            <Entry Placeholder="Per leter price" Text="{Binding Rate}"/>
+            <Entry Placeholder="Per leter price" Text="{Binding InpQuantity}"/>
             <Grid ColumnDefinitions="*" RowDefinitions="*">
                 <Button Grid.Column="0" Grid.Row="0" 
                         Text="{Binding PreviousMonth}" 
                         Command = "{Binding CreateUi}" 
-                        CommandParameter="1"/>
+                        CommandParameter="1" 
+                        IsVisible="true"/>
                 <Button Grid.Column="1" Grid.Row="0" 
                         Text="{Binding CurrentMonth}" 
                         Command="{Binding CreateUi}" 
                         CommandParameter="0"/>
             </Grid>
             <ListView ItemsSource="{Binding DateAndTime}">
-                
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Id}" Grid.Column="0"/>
+                                <Label Text="{Binding Date}" Grid.Column="1"/>
+                                <Label Text="{Binding Quantity}" Grid.Column="2"/>
+                                <Label Text="{Binding Rupee}" Grid.Column="3"/>
+                                <Button Text="update" Grid.Column="4" Command="{Binding Path=BindingContext.Edit,Source={x:Reference Page}}" CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
     </ContentPage.Content>
